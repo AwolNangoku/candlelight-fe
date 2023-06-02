@@ -16,6 +16,10 @@ const Step3 = () => {
     )
   }
 
+  const onDone = () => {
+    console.log('Done')
+  }
+
   return (
     <Stack w='100%'>
       <Stack w='100%' p='10px' flexDirection='column' alignItems='center'>
@@ -72,11 +76,11 @@ const Step3 = () => {
           </Stack>
 
           <Stack w='100%' flexDirection='column' justifyContent='flex-start' alignItems='center'>
-            <Stack w='100%' flexDirection='column' alignItems='center'>
+            <Stack w='100%' flexDirection='column' alignItems='center' spacing={18}>
               {[
                 {
                   icon: (
-                    <HStack w='100%'>
+                    <HStack>
                       <Image
                         src={glove}
                         fallbackSrc="https://via.placeholder.com/50"
@@ -88,7 +92,7 @@ const Step3 = () => {
                 },
                 {
                   icon: (
-                    <HStack w='100%'>
+                    <HStack>
                       <Image
                         src={glove}
                         fallbackSrc="https://via.placeholder.com/50"
@@ -105,7 +109,7 @@ const Step3 = () => {
                 },
                 {
                   icon: (
-                    <HStack w='100%'>
+                    <HStack>
                       <Image
                         src={glove}
                         fallbackSrc="https://via.placeholder.com/50"
@@ -129,9 +133,23 @@ const Step3 = () => {
                 title: string,
                 icon: React.ReactNode
               }) => (
-                <HStack>
+                <HStack
+                  key={buttonProps.title}
+                  role='button'
+                  bg='#FCE8D8'
+                  w='100%'
+                  justifyContent='center'
+                  alignItems='center'
+                  spacing={5}
+                  borderRadius='8px'
+                >
                   {buttonProps.icon}
-                  <Text>
+                  <Text
+                    fontWeight={400}
+                    fontSize='16px'
+                    lineHeight='24px'
+                    color='#616161'
+                  >
                     {buttonProps.title}
                   </Text>
                 </HStack>
@@ -141,8 +159,8 @@ const Step3 = () => {
         </Stack>
       </Stack>
 
-      <Stack w='100%' h='100%' justifyContent='flex-end' alignItems='center'>
-        <HStack w='100%' justifyContent='center' alignItems='center'>
+      <Stack w='100%' h='100%' justifyContent='flex-end' alignItems='flex-end'>
+        <HStack w='100%' justifyContent='center' alignItems='flex-end'>
           <HStack
             w='155px'
             h='40px'
@@ -170,6 +188,37 @@ const Step3 = () => {
                 lineHeight="20px"
               >
                 Back
+              </Text>
+            </Button>
+          </HStack>
+
+          <HStack
+            w='155px'
+            h='40px'
+            bg='#934670'
+            borderRadius='16px'
+            justifyContent='center'
+            alignItems='center'
+          >
+            <Button
+              w='100%'
+              h='100%'
+              bg='#934670'
+              type="button"
+              justifyContent='center'
+              alignItems="center"
+              variant="outline"
+              border='none'
+              borderRadius='6px'
+              onClick={onDone}
+            >
+              <Text
+                color='white'
+                fontWeight={500}
+                fontSize="14px"
+                lineHeight="20px"
+              >
+                Done
               </Text>
             </Button>
           </HStack>

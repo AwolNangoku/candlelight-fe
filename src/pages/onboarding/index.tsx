@@ -2,38 +2,28 @@ import React from "react"
 import { PageLayout } from "../../components/layout"
 import { Bell, Gear, MagnifyingGlass } from "phosphor-react"
 import { Stack } from "@chakra-ui/react"
-import { generatePath, useLocation, useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { Step1, Step2, Step3 } from "./steps"
 
 const Onboarding = () => {
-  const navigate = useNavigate()
-  const location = useLocation()
-
   const { step } = useParams()
 
   const navitems: {
     icon: React.ReactNode
     onIconClick: () => void
   }[] = [{
-    icon: <MagnifyingGlass  size={24}/>,
+    icon: <MagnifyingGlass size={24} color="#934670" role='button' />,
     onIconClick: () => console.log('Visit')
   },
   {
-    icon: <Gear size={24}/>,
+    icon: <Gear size={24} color="#934670" role='button' />,
     onIconClick: () => console.log('Settings')
   },
   {
-    icon: <Bell size={24}/>,
+    icon: <Bell size={24} color="#934670" role='button' />,
     onIconClick: () => console.log('Notifications')
   }
 ]
-
-  const onNext = () => {
-    navigate(
-      generatePath('/onboarding/:step', { step: '2' }),
-      { state: { from: location }}
-    )
-  }
 
   return (
     <PageLayout navItems={navitems}>
