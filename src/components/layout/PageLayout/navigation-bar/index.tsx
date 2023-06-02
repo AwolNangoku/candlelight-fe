@@ -1,6 +1,7 @@
-import { HStack, Stack, Text } from "@chakra-ui/react"
+import { HStack, Image, Stack } from "@chakra-ui/react"
 import React from "react"
 import Avartar from "./avatar"
+import logo from '../../../../assets/logo.png'
 
 type NavItem = {
   icon: React.ReactNode,
@@ -20,8 +21,14 @@ const NavigationBar = ({ navItems }: INavigationBarProps) => {
       <HStack
         w='100%'
       >
-        <Stack w='80%'>
-          <Text>Site Icon</Text>
+        <Stack w='80%' justifyContent='flex-start' alignItems='flex-start' p='10px'>
+          <Image
+            w="30px"
+            h="30px"
+            src={logo}
+            fallbackSrc="https://via.placeholder.com/50"
+            _hover={{ cursor: 'pointer' }}
+          />
         </Stack>
 
         <HStack
