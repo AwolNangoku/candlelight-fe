@@ -1,7 +1,7 @@
 import React from "react"
 import { PageLayout } from "../../components/layout"
 import { Bell, Gear, MagnifyingGlass } from "phosphor-react"
-import { Input, InputGroup, InputLeftElement, Stack, Text } from "@chakra-ui/react"
+import { Grid, GridItem, Input, InputGroup, InputLeftElement, Stack, Text } from "@chakra-ui/react"
 
 const Onboarding = () => {
   const navitems: {
@@ -61,9 +61,28 @@ const Onboarding = () => {
           >
             Tap to add
           </Text>
-          <Stack w='100%'>
-            
-          </Stack>
+          <Grid templateColumns='repeat(3, 1fr)' gap={6} w='100%'>
+            {[
+              'American',
+              'Asian',
+              'South African',
+              'Chines',
+              'Cuban',
+              'English',
+              'French',
+              'Braai',
+              'Japanese',
+              'Thai'
+            ].map((tag: string) => (
+              <GridItem w='100%' key={tag}>
+                <Stack>
+                  <Text>
+                    {tag}
+                  </Text>
+                </Stack>
+              </GridItem>
+            ))}
+          </Grid>
         </Stack>
       </Stack>
     </PageLayout>
