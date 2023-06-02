@@ -1,7 +1,7 @@
 import React from "react"
 import { PageLayout } from "../../components/layout"
 import { Bell, Gear, MagnifyingGlass } from "phosphor-react"
-import { Grid, GridItem, Input, InputGroup, InputLeftElement, Stack, Text } from "@chakra-ui/react"
+import { Button, FormControl, Grid, GridItem, HStack, Input, InputGroup, InputLeftElement, Stack, Text } from "@chakra-ui/react"
 
 const Onboarding = () => {
   const navitems: {
@@ -22,7 +22,7 @@ const Onboarding = () => {
 ]
   return (
     <PageLayout navItems={navitems}>
-      <Stack w='100%'>
+      <Stack w='100%' p='10px' flexDirection='column' alignItems='center'>
         <Stack w='100%' justifyContent='center' align='center'>
           <Text
             fontWeight={400}
@@ -43,19 +43,27 @@ const Onboarding = () => {
             Select or Search some Cuisine Types
           </Text>
           <Stack w='100%'>
-            <InputGroup
-              size="md"
-              borderRadius='8px'
-            >
-              <InputLeftElement>
-                <MagnifyingGlass size={24}/>
-              </InputLeftElement>
-              <Input
-                type="search"
-                placeholder="Search"
-                color='white'
-              />
-            </InputGroup>
+            <FormControl>
+              <InputGroup
+                w='100%'
+                size="md"
+                h='40px'
+                justifyContent='flex-start'
+                alignItems='center'
+                borderRadius='8px'
+              >
+                <InputLeftElement>
+                  <MagnifyingGlass size={24}/>
+                </InputLeftElement>
+                <Input
+                  w='100%'
+                  h='100%'
+                  type="search"
+                  placeholder="Search"
+                  color='white'
+                />
+              </InputGroup>
+            </FormControl>
           </Stack>
         </Stack>
 
@@ -82,7 +90,13 @@ const Onboarding = () => {
               'Thai'
             ].map((tag: string) => (
               <GridItem w='100%' key={tag}>
-                <Stack bg='#EF8C3B33' borderRadius='25px' justifyContent='center' alignItems='center'>
+                <Stack
+                  bg='#EF8C3B33'
+                  borderRadius='25px'
+                  justifyContent='center'
+                  alignItems='center'
+                  cursor='pointer'
+                >
                   <Text
                     fontWeight={400}
                     fontSize='16px'
@@ -97,6 +111,41 @@ const Onboarding = () => {
           </Grid>
         </Stack>
       </Stack>
+
+      <Stack w='100%' h='100%' justifyContent='flex-end' alignItems='center'>
+        <Stack w='100%' justifyContent='flex-end' alignItems='center'>
+          <HStack
+            w='155px'
+            h='40px'
+            bg='#934670'
+            borderRadius='16px'
+            justifyContent='center'
+            alignItems='center'
+          >
+            <Button
+              w='100%'
+              h='100%'
+              bg='#934670'
+              type="button"
+              justifyContent='center'
+              alignItems="center"
+              variant="outline"
+              border='none'
+              borderRadius='6px'
+            >
+              <Text
+                color='white'
+                fontWeight={500}
+                fontSize="14px"
+                lineHeight="20px"
+              >
+                Next
+              </Text>
+            </Button>
+          </HStack>
+        </Stack>
+      </Stack>
+      <Stack p={2} />
     </PageLayout>
   )
 }
