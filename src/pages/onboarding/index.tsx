@@ -43,11 +43,18 @@ const Onboarding = () => {
             Select or Search some Cuisine Types
           </Text>
           <Stack w='100%'>
-            <InputGroup w='100%'>
-              <InputLeftElement pointerEvents='none'>
-                <MagnifyingGlass size={24} />
+            <InputGroup
+              size="md"
+              borderRadius='8px'
+            >
+              <InputLeftElement>
+                <MagnifyingGlass size={24}/>
               </InputLeftElement>
-              <Input type='tex' placeholder='Search' />
+              <Input
+                type="search"
+                placeholder="Search"
+                color='white'
+              />
             </InputGroup>
           </Stack>
         </Stack>
@@ -75,8 +82,13 @@ const Onboarding = () => {
               'Thai'
             ].map((tag: string) => (
               <GridItem w='100%' key={tag}>
-                <Stack>
-                  <Text>
+                <Stack bg='#EF8C3B33' borderRadius='25px' justifyContent='center' alignItems='center'>
+                  <Text
+                    fontWeight={400}
+                    fontSize='16px'
+                    lineHeight='24px'
+                    color='#616161'
+                  >
                     {tag}
                   </Text>
                 </Stack>
