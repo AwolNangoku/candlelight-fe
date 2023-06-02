@@ -1,17 +1,55 @@
-import React from "react";
-import { Button, FormControl, Grid, GridItem, HStack, Input, InputGroup, InputLeftElement, Stack, Text } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Button, FormControl, HStack, Input, InputGroup, InputLeftElement, Stack, Text } from "@chakra-ui/react";
 import { MagnifyingGlass } from "phosphor-react";
 import { generatePath, useLocation, useNavigate } from "react-router-dom";
+import AddTags from "./add-tags";
+import TagsSelection from "./tags-selection";
 
 const Step1 = () => {
   const navigate = useNavigate()
   const location = useLocation()
+
+  const [initialTags, setInitialTags] = useState<string[]>([
+    'American',
+    'Asian',
+    'South African',
+    'Chines',
+    'Cuban',
+    'English',
+    'French',
+    'Braai',
+    'Japanese',
+    'Thai'
+  ])
+
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
 
   const onNext = () => {
     navigate(
       generatePath('/onboarding/:step', { step: '2' }),
       { state: { from: location }}
     )
+  }
+
+  const addTag = (selectedTag: string) => {
+    const tagAlreadyInSelectedTags = selectedTags.find((tag: string) => tag === selectedTag)
+    if (!tagAlreadyInSelectedTags) {
+      setSelectedTags(
+        [...selectedTags, selectedTag]
+      )
+      const filteredInitailTags = initialTags.filter((tag: string) => tag !== selectedTag)
+      setInitialTags(filteredInitailTags)
+    }
+  }
+
+  const removeTag = (selectedTag: string) => {
+    const tagAlreadyInSelectedTags = selectedTags.find((tag: string) => tag === selectedTag)
+    if (tagAlreadyInSelectedTags) {
+      setSelectedTags(selectedTags.filter((tag: string) => tag !== selectedTag))
+      setInitialTags(
+        [...initialTags, selectedTag]
+      )
+    }
   }
 
   return (
@@ -61,49 +99,17 @@ const Step1 = () => {
           </Stack>
         </Stack>
 
-        <Stack w='100%' justifyContent='flex-start'>
-          <Text
-            fontWeight={500}
-            fontSize='14px'
-            lineHeight='22px'
-            color='#272727'
-          >
-            Tap to add
-          </Text>
-          <Grid templateColumns='repeat(3, 1fr)' gap={6} w='100%'>
-            {[
-              'American',
-              'Asian',
-              'South African',
-              'Chines',
-              'Cuban',
-              'English',
-              'French',
-              'Braai',
-              'Japanese',
-              'Thai'
-            ].map((tag: string) => (
-              <GridItem w='100%' key={tag}>
-                <Stack
-                  bg='#EF8C3B33'
-                  borderRadius='25px'
-                  justifyContent='center'
-                  alignItems='center'
-                  cursor='pointer'
-                >
-                  <Text
-                    fontWeight={400}
-                    fontSize='16px'
-                    lineHeight='24px'
-                    color='#616161'
-                  >
-                    {tag}
-                  </Text>
-                </Stack>
-              </GridItem>
-            ))}
-          </Grid>
-        </Stack>
+        <AddTags
+          title="Tap to add"
+          tags={initialTags}
+          addTag={(tag: string) => addTag(tag)}
+        />
+
+        <TagsSelection
+          title="Your Selections"
+          selectionTags={selectedTags}
+          onRemoveTag={(tag: string) => removeTag(tag)}
+        />
       </Stack>
 
       <Stack w='100%' h='100%' justifyContent='flex-end' alignItems='center'>
