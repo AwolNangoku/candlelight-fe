@@ -1,15 +1,11 @@
 import React from "react";
-import { Image, Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
+import { UserCircle } from "phosphor-react";
 
 const Avartar = () => {
   return (
     <Stack p='0px' m='0px' justifyContent='center' alignItems='center' width='50px' height='50px'>
-      <Image
-        w="30px"
-        h="30px"
-        fallbackSrc="https://via.placeholder.com/50"
-        _hover={{ cursor: 'pointer' }}
-      />
+      <UserCircle size={30} color="#934670"/>
     </Stack>
   )
 }
