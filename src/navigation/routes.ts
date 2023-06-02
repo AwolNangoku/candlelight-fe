@@ -5,11 +5,13 @@ import { lazy } from "react"
 const Login = lazy(() => import("../pages/login"))
 const Home = lazy(() => import("../pages/home"))
 const Settings = lazy(() => import("../pages/home"))
+const Onboarding = lazy(() => import("../pages/onboarding"))
 
 const routes = {
   home: "/",
   login: "/login",
-  settings: "/settings"
+  settings: "/settings",
+  onboarding: "/onboarding"
 }
 
 const publicRoutes = [
@@ -24,6 +26,12 @@ const publicRoutes = [
     title: 'Signup',
     path: routes.home,
     component: Home
+  },
+  {
+    exact: true,
+    title: 'Onboarding',
+    path: routes.onboarding,
+    component: Onboarding
   },
 ]
 
