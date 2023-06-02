@@ -13,7 +13,7 @@ interface INavigationBarProps {
 }
 
 const NavigationBar = ({ navItems }: INavigationBarProps) => {
-  return (
+  return navItems ? (
     <Stack
       w='100%'
       bg='#EDD7AE'
@@ -45,6 +45,6 @@ const NavigationBar = ({ navItems }: INavigationBarProps) => {
         <Avartar />
       </HStack>
     </Stack>
-  )
+  ) : null
 }
 export default NavigationBar
