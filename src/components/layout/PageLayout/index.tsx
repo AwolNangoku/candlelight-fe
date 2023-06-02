@@ -15,12 +15,9 @@ const PageLayout = ({
   children
 }: IPageLayoutProps) => {
   return (
-    <Stack
-      w='100%'
-      flexDirection='column'
-    >
+    <Stack w='100%'>
       <NavigationBar navItems={navItems} />
-      <Stack w='100%'>
+      <Stack w='100%' h='100vh'>
         {children}
       </Stack>
     </Stack>

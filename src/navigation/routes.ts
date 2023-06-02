@@ -6,12 +6,14 @@ const Login = lazy(() => import("../pages/login"))
 const Home = lazy(() => import("../pages/home"))
 const Settings = lazy(() => import("../pages/home"))
 const Onboarding = lazy(() => import("../pages/onboarding"))
+const OnboardingStep2 = lazy(() => import("../pages/onboarding/onbording-step2"))
 
 const routes = {
   home: "/",
   login: "/login",
   settings: "/settings",
-  onboarding: "/onboarding"
+  onboarding: "/onboarding",
+  onboardingSteps: "/onboarding/:step"
 }
 
 const publicRoutes = [
@@ -32,6 +34,12 @@ const publicRoutes = [
     title: 'Onboarding',
     path: routes.onboarding,
     component: Onboarding
+  },
+  {
+    exact: true,
+    title: 'Onboarding: Step 2',
+    path: routes.onboardingSteps,
+    component: OnboardingStep2
   },
 ]
 
