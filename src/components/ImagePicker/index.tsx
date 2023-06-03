@@ -19,11 +19,6 @@ import axios from "axios";
 import { get, flatten } from "lodash";
 import styled from "styled-components";
 
-const StyledDiv = styled.div<{ count: number }>`
-  height: 400px
-  overflow: scroll;
-`;
-
 const StyledContainer = styled.div`
 display: flex;
 justify-content: space-between;

@@ -1,10 +1,9 @@
 import React from 'react';
 import ImagePicker from '../../components/ImagePicker';
-import CameraComponent from '../../components/Camera';
 
-const Ingredients:React.FunctionComponent=()=>{
+const Ingredients = () => {
     return (
-        <ImagePicker/>
+        <ImagePicker />
     )
 }
 
