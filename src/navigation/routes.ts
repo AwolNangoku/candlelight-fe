@@ -5,12 +5,14 @@ import { lazy } from "react"
 const Login = lazy(() => import("../pages/login"))
 const Home = lazy(() => import("../pages/home"))
 const Settings = lazy(() => import("../pages/home"))
+const Ingredients = lazy(()=> import("../pages/Ingredients"))
 const Onboarding = lazy(() => import("../pages/onboarding"))
 
 const routes = {
   home: "/",
   login: "/login",
   settings: "/settings",
+  ingredients: "/ingredients",
   onboarding: "/onboarding",
   onboardingSteps: "/onboarding/:step"
 }
@@ -27,6 +29,11 @@ const publicRoutes = [
     title: 'Signup',
     path: routes.home,
     component: Home
+  },{
+    expect: true,
+    title: 'Ingredients',
+    path: routes.ingredients,
+    component: Ingredients
   },
   {
     exact: true,
