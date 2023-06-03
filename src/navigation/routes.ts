@@ -5,22 +5,16 @@ import { lazy } from "react"
 const Login = lazy(() => import("../pages/login"))
 const Home = lazy(() => import("../pages/home"))
 const Settings = lazy(() => import("../pages/home"))
-<<<<<<< HEAD
 const Ingredients = lazy(()=> import("../pages/Ingredients"))
-=======
 const Onboarding = lazy(() => import("../pages/onboarding"))
->>>>>>> 99bd9b164904cef7da25eb10f78b661d3a15eed5
 
 const routes = {
   home: "/",
   login: "/login",
   settings: "/settings",
-<<<<<<< HEAD
-  ingredients: "ingredients"
-=======
+  ingredients: "/ingredients",
   onboarding: "/onboarding",
   onboardingSteps: "/onboarding/:step"
->>>>>>> 99bd9b164904cef7da25eb10f78b661d3a15eed5
 }
 
 const publicRoutes = [
@@ -35,14 +29,11 @@ const publicRoutes = [
     title: 'Signup',
     path: routes.home,
     component: Home
-<<<<<<< HEAD
   },{
     expect: true,
     title: 'Ingredients',
     path: routes.ingredients,
     component: Ingredients
-  }
-=======
   },
   {
     exact: true,
@@ -56,7 +47,6 @@ const publicRoutes = [
     path: routes.onboardingSteps,
     component: Onboarding
   },
->>>>>>> 99bd9b164904cef7da25eb10f78b661d3a15eed5
 ]
 
 const privateRoutes: IPrivateRoute[] = [

@@ -20,11 +20,8 @@
     "axios": "^1.4.0",
     "formik": "^2.4.1",
     "framer-motion": "^10.12.16",
-<<<<<<< HEAD
     "lodash": "^4.17.21",
-=======
     "phosphor-react": "^1.4.1",
->>>>>>> 99bd9b164904cef7da25eb10f78b661d3a15eed5
     "react": "^18.2.0",
     "react-camera-pro": "^1.3.0",
     "react-dom": "^18.2.0",
@@ -59,5 +56,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26"
   }
 }
